@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">        
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>GetGit</title>
+</head>
+<body>
+    <div class="container is-fluid" id="content">
+
+    {{#each users}}
+      <section data-section-id="1" data-category="userinfo" data-component-id="29e6_4_03_awz" class="hero is-light">
+        <div class="container">          
+          <div class="columns is-vcentered">              
+            <div class="container has-text-centered is-primary">
+                <div class="column"><img src="{{this.avatar_url}}" alt="" data-config-id="image"></div>
+                <div class="column">
+                    <h2 class="title is-spaced" data-config-id="subheader">{{this.login}}</h2>              
+                    <a class="button is-primary" href="{{this.html_url}}" target="blank">Github Page</a>
+                    <button class="button is-secondary" onclick="loadJsonData('{{userapi_url}}','{{this.login}}')">Json Data</button> 
+                </div>                
+            </div>              
+        </div>          
+        <hr>    
+      </section>
+    {{/each}}
+    <div class="modal">
+        <div class="modal-background"></div>
+            <div class="modal-content">
+                <article class="message">
+                    <div class="message-header">
+                        <p>Json Data</p>    
+                    </div>
+                    <div class="message-body">    
+                    </div>
+                </article>
+            </div>        
+            <button class="modal-close is-large" aria-label="close" onclick="closeModal()"></button>
+        </div>                
+    </div>
+</body>
+<script src="index.js">    
+</script>
+</html>
